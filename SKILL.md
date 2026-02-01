@@ -23,16 +23,16 @@ SIC_API_KEY=your_key_here
 
 ## 📖 Usage
 ### 🤖 TL;DR for Agents
-If this skill is installed, you can transcribe any URL and get JSON results immediately by running:
-`openclaw run asr transcribe --url "https://example.com/audio.mp3"`
+When this skill is installed, you can transcribe any URL from an OpenClaw session and get the JSON results immediately by running:
+`./skills/asr/scripts/asr.sh transcribe --url "https://example.com/audio.mp3"`
 
 ### Transcribe a URL
 ```bash
 # Basic transcription
-openclaw run asr transcribe --url "https://example.com/audio.mp3"
+./skills/asr/scripts/asr.sh transcribe --url "https://example.com/audio.mp3"
 
 # Advanced transcription with options
-openclaw run asr transcribe --url "https://example.com/audio.mp3" \
+./skills/asr/scripts/asr.sh transcribe --url "https://example.com/audio.mp3" \
   --speakers --words --labels \
   --language "en" \
   --format "srt" \
@@ -43,9 +43,12 @@ openclaw run asr transcribe --url "https://example.com/audio.mp3" \
 Perfect for processing audio already on your disk. This handles the upload automatically.
 ```bash
 # Upload and transcribe local media
-openclaw run asr transcribe --file "./local-audio.wav"
+./skills/asr/scripts/asr.sh transcribe --file "./local-audio.wav"
 
-# Note: For local files, the skill handles the multi-part upload to 
+# Upload with webhook callback
+./skills/asr/scripts/asr.sh transcribe --file "./local-audio.wav" --webhook "https://mysite.com/callback"
+
+# Note: For local files, the skill handles the multi-part upload to
 # https://upload.speechischeap.com before starting the transcription.
 ```
 
@@ -63,10 +66,10 @@ openclaw run asr transcribe --file "./local-audio.wav"
 
 ### Check Job Status
 ```bash
-openclaw run asr status "job-id-here"
+./skills/asr/scripts/asr.sh status "job-id-here"
 ```
 
 ## 🤖 For Agents
-The `sic` command-line tool returns JSON by default when successful, making it easy to pipe into other tools or parse directly.
+The `asr.sh` command-line tool returns JSON by default when successful, making it easy to pipe into other tools or parse directly.
 
 If the `SIC_API_KEY` is missing, the tool will provide a clear error message and a direct link to the signup page.
