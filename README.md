@@ -1,3 +1,3 @@
 # Speech is Cheap: ClawHub ASR
 
-ClawHub skill integration for Speech is Cheap ASR
+ClawHub skill for transcribing audio with Speech is Cheap
