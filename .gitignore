@@ -1,5 +1,5 @@
-# Publish script
-publish.sh
+# publish
+publish/
 
 # dependencies
 node_modules/
