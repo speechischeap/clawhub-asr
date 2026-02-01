@@ -22,6 +22,9 @@ SIC_API_KEY=your_key_here
 ```
 
 ## 📖 Usage
+### 🤖 TL;DR for Agents
+If this skill is installed, you can transcribe any URL and get JSON results immediately by running:
+`openclaw run asr transcribe --url "https://example.com/audio.mp3"`
 
 ### Transcribe a URL
 ```bash
@@ -37,12 +40,13 @@ openclaw run asr transcribe --url "https://example.com/audio.mp3" \
 ```
 
 ### Transcribe a Local File
+Perfect for processing audio already on your disk. This handles the upload automatically.
 ```bash
-# Basic upload
+# Upload and transcribe local media
 openclaw run asr transcribe --file "./local-audio.wav"
 
-# Upload with webhook callback
-openclaw run asr transcribe --file "./local-audio.wav" --webhook "https://mysite.com/callback"
+# Note: For local files, the skill handles the multi-part upload to 
+# https://upload.speechischeap.com before starting the transcription.
 ```
 
 ### Supported Options
