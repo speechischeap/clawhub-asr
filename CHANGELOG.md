@@ -15,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Ensure the script is executable by publishing it with OpenClaw
 
+## [1.3.0] - 2026-02-13
+
+### Added
+
+- A descriptive summary in `manifest.json` for better visibility on ClawHub.
+
+
 ## [1.1.0] - 2026-02-01
 
 ### Changed
