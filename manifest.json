@@ -8,7 +8,7 @@
   "commands": {
     "asr": "scripts/asr.sh"
   },
-  "description": "ClawHub skill for transcribing audio with Speech is Cheap",
+  "description": "Fast, high-quality, and cost-effective audio transcription for agents. Powered by Speech is Cheap ($0.06 - $0.12/hr).",
   "env": [
     "SIC_API_KEY"
   ],
@@ -28,5 +28,5 @@
   "license": "MIT",
   "name": "asr",
   "repository": "https://github.com/speechischeap/clawhub-asr",
-  "version": "1.2.0"
+  "version": "1.3.0"
 }
