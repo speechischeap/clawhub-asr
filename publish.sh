@@ -6,7 +6,8 @@
 # 1. Configuration
 SLUG="asr"
 DISPLAY_NAME="Speech is Cheap Transcribe"
-REGISTRY="https://www.clawhub.ai"
+# The www host drops the CLI login, so publish to the apex registry.
+REGISTRY="https://clawhub.ai"
 PUBLISH_DIR="./publish"
 SOURCE_DIR="."
 
@@ -21,8 +22,8 @@ fi
 echo "🚀 Preparing to publish $DISPLAY_NAME v$VERSION..."
 
 # 3. Extract Changelog from Git Tag
-# This looks at the tag matching the current version and strips backslashes
-CHANGELOG=$(git show "$VERSION" --quiet --format=%b | tr -d '\\')
+# Use the tag message without its signature, and strip backslashes.
+CHANGELOG=$(git tag -l "$VERSION" --format='%(contents:subject)%0a%0a%(contents:body)' | tr -d '\\')
 
 if [ -z "$CHANGELOG" ]; then
     echo "⚠️ Warning: No changelog found for tag $VERSION. Using default message."
