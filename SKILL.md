@@ -1,6 +1,6 @@
 ---
 name: asr
-description: Transcribe media URLs or local audio/video files with Speech is Cheap using an API key or explicitly approved x402 USDC payments.
+description: Fast, high-quality, and cost-effective transcription of audio and video for agents, by Speech is Cheap ($0.06 - $0.12/hr). Use an API key or x402 USDC.
 metadata:
   openclaw:
     requires:
