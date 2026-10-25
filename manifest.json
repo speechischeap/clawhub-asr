@@ -9,9 +9,6 @@
     "asr": "scripts/asr.sh"
   },
   "description": "ClawHub skill for transcribing audio with Speech is Cheap",
-  "env": [
-    "SIC_API_KEY"
-  ],
   "homepage": "https://speechischeap.com",
   "keywords": [
     "asr",
