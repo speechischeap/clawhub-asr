@@ -22,8 +22,8 @@
     "transcription",
     "whisper"
   ],
-  "license": "MIT",
+  "license": "MIT-0",
   "name": "asr",
   "repository": "https://github.com/speechischeap/clawhub-asr",
-  "version": "1.3.0"
+  "version": "1.4.0"
 }
