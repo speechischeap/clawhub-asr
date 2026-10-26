@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - License the skill under MIT-0, which ClawHub requires; the copyright notice stays
+- Link the reorganized x402 docs for errors, refunds and webhooks
 
 ### Fixed
 
