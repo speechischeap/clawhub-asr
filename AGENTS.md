@@ -32,5 +32,7 @@ ClawHub reads metadata from `SKILL.md` frontmatter. `manifest.json` still
 supplies the version to `publish.sh`; it does not declare runtime requirements.
 Update that version and date the changelog through the release workflow.
 `publish.sh` packages runtime files and then publishes after its confirmation;
-update its file list when adding runtime files. Publication, live payments,
-and merges require an explicit request.
+update its file list when adding runtime files. ClawHub publishes every
+skill under MIT-0, so `LICENSE` and `manifest.json` say MIT-0 and keep the
+copyright notice; add no other license terms to `SKILL.md`. Publication,
+live payments, and merges require an explicit request.
