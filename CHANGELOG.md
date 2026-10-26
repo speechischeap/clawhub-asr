@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - License the skill under MIT-0, which ClawHub requires; the copyright notice stays
 
+### Fixed
+
+- Publish to ClawHub with the CLI login and a changelog without the tag signature
+
 ## [1.3.0] - 2026-10-25
 
 ### Added

@@ -31,8 +31,10 @@ Conventional Commit and use the `generate-commit` skill.
 ClawHub reads metadata from `SKILL.md` frontmatter. `manifest.json` still
 supplies the version to `publish.sh`; it does not declare runtime requirements.
 Update that version and date the changelog through the release workflow.
-`publish.sh` packages runtime files and then publishes after its confirmation;
-update its file list when adding runtime files. ClawHub publishes every
-skill under MIT-0, so `LICENSE` and `manifest.json` say MIT-0 and keep the
-copyright notice; add no other license terms to `SKILL.md`. Publication,
-live payments, and merges require an explicit request.
+`publish.sh` packages runtime files and then publishes after its confirmation.
+It needs `clawhub` CLI 0.23 or newer, logged in to `https://clawhub.ai`;
+older CLIs cannot accept ClawHub's license terms. Update its file list when
+adding runtime files. ClawHub publishes every skill under MIT-0, so `LICENSE`
+and `manifest.json` say MIT-0 and keep the copyright notice; add no other
+license terms to `SKILL.md`. Publication, live payments, and merges require
+an explicit request.
