@@ -147,5 +147,7 @@ no job ID, and a full refund. An unused upload purchase reports `EXPIRED` the
 same way. To try again, start a new purchase with a new `--state` path.
 Refunds return to the original payer; a pending refund is not a
 completed transfer. Deduplicate x402 webhooks by `X-SiC-Event-ID`. For
-duration errors, refund rules, and webhook event formats, consult the
-[x402 Jobs guide](https://docs.speechischeap.com/x402/).
+duration errors, refund rules, and webhook event formats, see
+[Errors](https://docs.speechischeap.com/errors/),
+[Payments and Refunds](https://docs.speechischeap.com/x402-v2/payments/),
+and [x402 Webhooks](https://docs.speechischeap.com/x402-v2/webhooks/).

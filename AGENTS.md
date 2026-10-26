@@ -15,7 +15,7 @@ saved proof only when the service declines it with a fresh `PAYMENT-REQUIRED`
 or a 402 `PAYMENT-RESPONSE` whose `success` is false. Both mean it took no
 payment and will never settle that proof. Keep the proof after any uncertain
 reply. Keep payment state outside the repository.
-Follow the response contract in the [x402 Jobs guide](https://docs.speechischeap.com/x402/).
+Follow the response contract in the [x402 API docs](https://docs.speechischeap.com/x402-v2/).
 
 Use Node.js 22 or newer and pnpm. For helper or packaging changes, run
 `pnpm install --frozen-lockfile`, `pnpm test`,
