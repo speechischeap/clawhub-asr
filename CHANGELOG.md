@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Say what transcription sends to Speech is Cheap
+
 ### Changed
 
 - Publish the skill under the `speechischeap` publisher on ClawHub
