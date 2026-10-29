@@ -5,6 +5,8 @@
 
 # 1. Configuration
 SLUG="asr"
+# Publish under the org; omitting it creates a separate personal skill.
+OWNER="speechischeap"
 DISPLAY_NAME="Speech is Cheap Transcribe"
 # The www host drops the CLI login, so publish to the apex registry.
 REGISTRY="https://clawhub.ai"
@@ -50,6 +52,7 @@ chmod +x "$PUBLISH_DIR/scripts/asr.sh"
 
 # 5. Final Confirmation
 echo "--------------------------------------------------------"
+echo "Owner:     @$OWNER"
 echo "Slug:      $SLUG"
 echo "Name:      $DISPLAY_NAME"
 echo "Version:   $VERSION"
@@ -61,7 +64,8 @@ echo "Ready to publish? (y/n)"
 read -r response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     echo "📤 Publishing to ClawHub..."
-    clawhub publish "$PUBLISH_DIR" \
+    clawhub skill publish "$PUBLISH_DIR" \
+        --owner "$OWNER" \
         --slug "$SLUG" \
         --name "$DISPLAY_NAME" \
         --version "$VERSION" \
