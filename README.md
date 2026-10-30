@@ -11,12 +11,28 @@ price ceiling you approve, with no Speech is Cheap account.
 
 ## Install
 
+OpenClaw:
+
+```sh
+openclaw skills install asr
+```
+
+Hermes Agent:
+
+```sh
+hermes skills install clawhub/asr
+```
+
+Other agents that use the ClawHub CLI (installs into `./skills/asr` under the
+current folder):
+
 ```sh
 clawhub install asr
 ```
 
 API-key mode requires Bash, curl, and a Speech is Cheap account. Configure
-`SIC_API_KEY` in your agent's environment.
+`SIC_API_KEY` in your agent's environment, or set `skills.entries.asr.apiKey`
+in OpenClaw's config.
 
 Wallet mode needs Node.js 22 or newer, pnpm, and an existing EVM wallet
 holding USDC on Base. Install its dependencies with
