@@ -43,6 +43,12 @@ with `git hf feature start <name>` from `develop`; feature PRs target
 `develop`, and release PRs target `master`. Keep feature PRs to one
 Conventional Commit and use the `generate-commit` skill.
 
+Before writing commits, pull requests, issues, or other public text, follow
+the maintainer's rules in the gitignored file below. Open it if your harness
+didn't import it; it may be absent.
+
+@AGENTS-PRIVATE.md
+
 ClawHub reads metadata from `SKILL.md` frontmatter. `manifest.json` still
 supplies the version to `publish.sh`; it does not declare runtime requirements.
 Update that version and date the changelog through the release workflow.

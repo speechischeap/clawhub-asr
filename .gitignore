@@ -19,3 +19,6 @@ pnpm-debug.log*
 .DS_Store
 
 .vscode/
+
+# maintainer-only agent rules
+AGENTS-PRIVATE.md
