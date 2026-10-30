@@ -24,6 +24,14 @@ Transcribe a media URL or local audio/video file. Jobs are asynchronous;
 prefer a caller-supplied webhook, or poll at the caller's chosen interval.
 The examples use the default `./skills/asr/` installation path.
 
+## Data handling
+
+Transcription sends the media URL or file, the chosen options, and any webhook
+URL to Speech is Cheap. Send only media the caller asked to transcribe, and
+suggest `--private` for sensitive recordings. See the
+[Privacy Policy](https://speechischeap.com/privacy/) and
+[Security](https://speechischeap.com/company/security/) pages.
+
 ## API-key mode
 
 Use the caller's configured `SIC_API_KEY` with Bash and curl. Keep the key out
@@ -134,7 +142,7 @@ a language, `--confidence <0..1>` for confidence, and
 language detection, confidence 0.5, and 30-second segments.
 
 Omit `--format` for JSON; use `--format srt`, `vtt`, or `webvtt` for subtitles.
-`--private` redacts the input URL and removes transcript segments after 12
+`--private` redacts the input URL and deletes transcript segments after 12
 hours. `--webhook <url>` supplies the caller's callback; this skill hosts none.
 API-key mode supports `--stream`. Wallet mode is asynchronous and also accepts
 `--split-channel` and `--user-agent <value>`.
