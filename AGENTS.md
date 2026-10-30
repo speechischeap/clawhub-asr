@@ -38,3 +38,14 @@ adding runtime files. ClawHub publishes every skill under MIT-0, so `LICENSE`
 and `manifest.json` say MIT-0 and keep the copyright notice; add no other
 license terms to `SKILL.md`. Publication, live payments, and merges require
 an explicit request.
+
+The `speechischeap` org publisher owns the listing at
+`https://clawhub.ai/speechischeap/skills/asr`. Publish through `publish.sh`,
+which passes `--owner speechischeap`; an upload without an owner becomes a
+separate personal skill and makes the bare `asr` slug ambiguous. ClawHub holds
+back an upload whose security checks fail. Read its stored results with
+`clawhub scan download asr --version <version>`. To separate a ClawHub outage
+from a content problem, rescan a version that passed before with
+`clawhub scan --slug asr --version <version>`, leaving out `--update`, which
+writes results back. Raise a held upload with the user before contacting
+ClawHub support.
