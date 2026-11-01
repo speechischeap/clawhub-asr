@@ -1,8 +1,14 @@
 ---
 name: asr
-description: Fast, high-quality, and cost-effective transcription of audio and video for agents, by Speech is Cheap ($0.06 - $0.12/hr). Use an API key or x402 USDC.
+description: Transcribe audio and video for agents by Speech is Cheap. Fast, high-quality, and cost-effective ($0.06 - $0.12/hr). Use an API key or x402 USDC.
+required_environment_variables:
+  - name: SIC_API_KEY
+    help: https://speechischeap.com/
+    required_for: API-key mode
+    optional: true
 metadata:
   openclaw:
+    primaryEnv: SIC_API_KEY
     requires:
       bins: [bash]
       anyBins: [curl, node]
@@ -22,7 +28,16 @@ metadata:
 
 Transcribe a media URL or local audio/video file. Jobs are asynchronous;
 prefer a caller-supplied webhook, or poll at the caller's chosen interval.
-The examples use the default `./skills/asr/` installation path.
+`{baseDir}` is the folder containing this file. Run the helper with `bash`,
+because installs can drop its executable bit.
+
+## Data handling
+
+Transcription sends the media URL or file, the chosen options, and any webhook
+URL to Speech is Cheap. Send only media the caller asked to transcribe, and
+suggest `--private` for sensitive recordings. See the
+[Privacy Policy](https://speechischeap.com/privacy/) and
+[Security](https://speechischeap.com/company/security/) pages.
 
 ## API-key mode
 
@@ -31,11 +46,16 @@ of output. If it is missing, direct the caller to
 [Speech is Cheap](https://speechischeap.com/) for setup. Wallet spending
 requires the caller's explicit choice of `--x402`.
 
+OpenClaw sandboxes start without network access or the
+`skills.entries.asr.apiKey` setting. To use API-key mode there, enable sandbox
+network access and set `SIC_API_KEY` in `agents.defaults.sandbox.docker.env`.
+Wallet mode runs only on the host.
+
 ```sh
-./skills/asr/scripts/asr.sh transcribe --url "https://example.com/audio.mp3"
-./skills/asr/scripts/asr.sh transcribe --file "./audio.wav" \
+bash {baseDir}/scripts/asr.sh transcribe --url "https://example.com/audio.mp3"
+bash {baseDir}/scripts/asr.sh transcribe --file "./audio.wav" \
   --webhook "https://your-domain.com/transcription"
-./skills/asr/scripts/asr.sh status "job-id-here"
+bash {baseDir}/scripts/asr.sh status "job-id-here"
 ```
 
 ## Wallet mode
@@ -43,7 +63,7 @@ requires the caller's explicit choice of `--x402`.
 Wallet mode buys one asynchronous job through x402 and pays native USDC on Base
 from the caller's wallet. It needs no Speech is Cheap account, API key, or
 Stripe credentials. It needs Node.js 22 or newer and dependencies installed
-with `pnpm install --frozen-lockfile` in the skill directory.
+with `pnpm install --frozen-lockfile` in `{baseDir}`.
 
 Set `SIC_X402_WALLET_MODULE` to the absolute path of the caller's existing
 module exporting `signer`, an EVM signer with `address` and `signTypedData`.
@@ -69,10 +89,10 @@ tokens out of logs, attachments, and version control.
 
 ```sh
 mkdir -p "$HOME/.local/state/asr"
-./skills/asr/scripts/asr.sh --x402 transcribe \
+bash {baseDir}/scripts/asr.sh --x402 transcribe \
   --url "https://example.com/audio.mp3" --duration 200 --max-usd 0.01 \
   --state "$HOME/.local/state/asr/recording-001.json"
-./skills/asr/scripts/asr.sh --x402 transcribe \
+bash {baseDir}/scripts/asr.sh --x402 transcribe \
   --file "./audio.wav" --duration 200 --max-usd 0.01 \
   --state "$HOME/.local/state/asr/recording-002.json" \
   --webhook "https://your-domain.com/transcription"
@@ -89,9 +109,9 @@ purchase every 30 seconds for up to 10 minutes. If it still reports a pending
 ## Recovery, status, and cancellation
 
 ```sh
-./skills/asr/scripts/asr.sh --x402 resume --state "$HOME/.local/state/asr/recording-002.json"
-./skills/asr/scripts/asr.sh --x402 status "job-id-here"
-./skills/asr/scripts/asr.sh --x402 cancel "job-id-here"
+bash {baseDir}/scripts/asr.sh --x402 resume --state "$HOME/.local/state/asr/recording-002.json"
+bash {baseDir}/scripts/asr.sh --x402 status "job-id-here"
+bash {baseDir}/scripts/asr.sh --x402 cancel "job-id-here"
 ```
 
 Resume accepts no replacement options. An existing proof is replayed
@@ -134,7 +154,7 @@ a language, `--confidence <0..1>` for confidence, and
 language detection, confidence 0.5, and 30-second segments.
 
 Omit `--format` for JSON; use `--format srt`, `vtt`, or `webvtt` for subtitles.
-`--private` redacts the input URL and removes transcript segments after 12
+`--private` redacts the input URL and deletes transcript segments after 12
 hours. `--webhook <url>` supplies the caller's callback; this skill hosts none.
 API-key mode supports `--stream`. Wallet mode is asynchronous and also accepts
 `--split-channel` and `--user-agent <value>`.

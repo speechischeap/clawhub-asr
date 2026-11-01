@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-11-01
+
+### Added
+
+- Say what transcription sends to Speech is Cheap
+- Install and API-key setup for OpenClaw and Hermes Agent
+
+### Changed
+
+- Publish the skill under the `speechischeap` publisher on ClawHub
+- Lead the description with what the skill does, as Hermes Agent shows only its start
+
+### Fixed
+
+- Run the helper with `bash` from the skill's folder, since installs drop its executable bit
+
 ## [1.4.0] - 2026-10-26
 
 ### Changed
