@@ -70,3 +70,16 @@ from a content problem, rescan a version that passed before with
 `clawhub scan --slug asr --version <version>`, leaving out `--update`, which
 writes results back. Raise a held upload with the user before contacting
 ClawHub support.
+
+ClawHub takes the listing icon from `agents/openai.yaml`: `interface.icon_small`
+and `icon_large` both point at `assets/maskable-512.png`. It accepts PNG, JPEG,
+WebP, or SVG up to 512 KiB, and it silently skips a file that fails its content
+check, so confirm after publishing that the listing's `icon` is a
+`/api/v1/skill-icons/<sha256>` path. Leave out `display_name` and
+`short_description`; `publish.sh`'s `--name` outranks the first, and the
+second would replace the summary drawn from `SKILL.md`'s `description`. The
+PNG is an unchanged copy of the maskable logo, the white-plated framing for
+icons cropped to a circle or rounded square, from
+`https://cdn.speechischeap.com/website-data/brand/maskable-512.png`. After an
+artwork change, download it again, match its SHA-256 against `manifest.json`
+in the same folder, and publish a new version.
