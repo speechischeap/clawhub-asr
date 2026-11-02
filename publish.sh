@@ -35,7 +35,7 @@ fi
 # 4. Clean and Prepare the Publish Folder
 echo "🧹 Cleaning up $PUBLISH_DIR..."
 rm -rf "$PUBLISH_DIR"
-mkdir -p "$PUBLISH_DIR/scripts"
+mkdir -p "$PUBLISH_DIR/scripts" "$PUBLISH_DIR/agents" "$PUBLISH_DIR/assets"
 
 echo "📦 Copying essential files..."
 cp "$SOURCE_DIR/manifest.json" "$PUBLISH_DIR/"
@@ -44,6 +44,8 @@ cp "$SOURCE_DIR/README.md" "$PUBLISH_DIR/"
 cp "$SOURCE_DIR/CHANGELOG.md" "$PUBLISH_DIR/"
 cp "$SOURCE_DIR/scripts/asr.sh" "$PUBLISH_DIR/scripts/"
 cp "$SOURCE_DIR/scripts/x402.mjs" "$PUBLISH_DIR/scripts/"
+cp "$SOURCE_DIR/agents/openai.yaml" "$PUBLISH_DIR/agents/"
+cp "$SOURCE_DIR/assets/maskable-512.png" "$PUBLISH_DIR/assets/"
 cp "$SOURCE_DIR/package.json" "$PUBLISH_DIR/"
 cp "$SOURCE_DIR/pnpm-lock.yaml" "$PUBLISH_DIR/"
 
